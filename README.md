@@ -1,4 +1,6 @@
 code:
+
+
 from machine import Pin, I2C, PWM
 import ssd1306
 import time
@@ -140,7 +142,7 @@ Il affiche en temps réel l'état du système : soit "En surveillance..." quand 
 
 
 Schéma de câblage:
-![Mon Schéma](images/schema.png)
+![Mon Schéma](schema.png)
 Explication du code:
 
 Le code est découpé en plusieurs parties :
