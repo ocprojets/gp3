@@ -122,7 +122,11 @@ while True:
 
 
 Projet Alarme avec Détection de Mouvement 
-Description
+
+
+Description:
+
+
 Notre projet est un système d'alarme avec détection de mouvement. Quand quelqu'un passe devant le capteur, l'écran affiche "ALARME" et le buzzer fait du bruit. On a utilisé une Raspberry Pi Pico pour faire fonctionner tout le système.
 
 Matériel utilisé (liste des composants):
