@@ -117,5 +117,53 @@ while True:
 
 
 
-description du projet: 
-  notre projet se base sur une alarme qui agit sur detection de mouvement. l'alarme utilise un ecran pour communiquer les informations et un detecteur de mouvement
+
+
+Projet Alarme avec Détection de Mouvement 
+Description
+Notre projet est un système d'alarme avec détection de mouvement. Quand quelqu'un passe devant le capteur, l'écran affiche "ALARME" et le buzzer fait du bruit. On a utilisé une Raspberry Pi Pico pour faire fonctionner tout le système.
+
+Matériel utilisé (liste des composants):
+Raspberry Pi PicoLe cerveau du projet,execute le code Capteur 
+PIR (HC-SR501)Detecte les mouvements
+Écran OLED SSD1306 (128x64), Affiche l'état de l'alarme
+Buzzer actif Fait le son quand alarme déclenchée
+LED intégrée (GP25)Clignote lors d'une alerte
+
+Nouveau composant : 
+l'écran OLED SSD1306
+L'écran  est le nouveau composant qu'on a ajouté par rapport au projet de base.
+Comment il fonctionne :
+L'écran OLED utilise le protocole I2C pour communiquer avec la Raspberry Pi Pico. I2C c'est un protocole qui permet de faire passer des données avec seulement 2 fils (SDA et SCL). L'écran fait 128x64 pixels 
+Son rôle dans le projet :
+Il affiche en temps réel l'état du système : soit "En surveillance..." quand tout va bien, soit ! MOUVEMENT ! avec le nombre de mouvements détectés quand l'alarme est active. Ca permet de voir ce qu'il se passe sans avoir besoin d'un ordinateur branché.
+
+
+Schéma de câblage:
+
+
+Explication du code:
+
+Le code est découpé en plusieurs parties :
+    Initialisation : On configure tous les composants au démarrage (écran, capteur, buzzer, LED).
+Fonctions utilitaires :
+
+afficher() : efface l'écran et écrit jusqu'à 3 lignes de texte
+bip() : fait un son court avec le buzzer en réglant la fréquence
+alarme_sonore() : enchaine 3 bips aigus pour signaler un mouvement
+bip_confirmation() : bip grave pour indiquer que le système est prêt
+
+Boucle principale : Toutes les 0,5 secondes, on vérifie si le capteur PIR détecte un mouvement. Si oui, l'alarme se déclenche, l'écran affiche l'alerte et le buzzer s'active. Si plus de mouvement pendant 5 secondes, l'alarme se désactive automatiquement.
+
+Comment lancer le projet
+
+Brancher tous les composants selon le schéma
+Copier le fichier ssd1306.py sur la Pico (bibliothèque de l'écran)
+Copier le fichier main.py sur la Pico avec Thonny
+Déconnecter et rebrancher la Pico — le programme démarre automatiquement
+
+
+
+
+
+
