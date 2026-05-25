@@ -140,7 +140,7 @@ Il affiche en temps réel l'état du système : soit "En surveillance..." quand 
 
 
 Schéma de câblage:
-
+![Mon Schéma](schema.png)
 
 Explication du code:
 
